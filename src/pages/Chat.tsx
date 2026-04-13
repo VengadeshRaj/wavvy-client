@@ -110,7 +110,7 @@ export default function Chat() {
                 <path d="M12 2C6.48 2 2 6.48 2 12c0 1.54.36 3 .97 4.29L2 22l5.71-.97C9 21.64 10.46 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.29 0-2.5-.3-3.57-.82l-.26-.14-2.67.45.45-2.67-.14-.26A7.934 7.934 0 014 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8z"/>
               </svg>
             </div>
-            <h1 className="text-2xl" style={{ fontWeight: 700 }}>Messages</h1>
+            <h1 className="text-2xl" style={{ fontWeight: 700 }}>Wavvy</h1>
           </div>
           <div className="flex items-center gap-3">
             <button className="w-10 h-10 rounded-full hover:bg-[rgba(255,107,0,0.1)] flex items-center justify-center transition-colors duration-200">
