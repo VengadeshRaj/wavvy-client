@@ -1,14 +1,18 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 export default function Login() {
   const [isCreatingAccount, setIsCreatingAccount] = useState(false);
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const [password, setPassword] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', { phoneNumber, password, isCreatingAccount });
+    console.log("Form submitted:", {
+      phoneNumber,
+      password,
+      isCreatingAccount,
+    });
   };
 
   return (
@@ -37,31 +41,50 @@ export default function Login() {
 
           <div className="relative">
             {/* Logo/Title area */}
-            <div className="mb-10">
-              <div className="inline-block mb-3 px-4 py-1 bg-[rgba(255,107,0,0.1)] border border-[rgba(255,107,0,0.3)] rounded-full">
-                <span className="text-[#FF6B00] text-sm tracking-wider uppercase">Secure Access</span>
+              <div className="mb-5 text-center">
+                {/* App Icon */}
+                <img
+                  src="/wavvy-icon.png"
+                  alt="Wavvy"
+                  className="w-16 h-16 mx-auto mb-4 rounded-2xl shadow-lg"
+                />
+
+                {/* App Name */}
+                <h1 className="text-3xl mb-2" style={{ fontWeight: 600 }}>
+                  {isCreatingAccount ? "Create Account" : "Welcome to Wavvy"}
+                </h1>
+
+                <p className="text-[#888888]">
+                  {isCreatingAccount
+                    ? "Join us and get started today"
+                    : "Sign in to start chatting"}
+                </p>
               </div>
-              <h1 className="text-3xl mb-3" style={{ fontWeight: 600 }}>
-                {isCreatingAccount ? 'Create Account' : 'Welcome Back'}
-              </h1>
-              <p className="text-[#888888]">
-                {isCreatingAccount
-                  ? 'Join us and get started today'
-                  : 'Enter your credentials to continue'}
-              </p>
-            </div>
 
             {/* Form */}
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Phone Number Input */}
               <div className="relative group">
-                <label htmlFor="phone" className="block text-sm mb-2 text-[#CCCCCC]">
+                <label
+                  htmlFor="phone"
+                  className="block text-sm mb-2 text-[#CCCCCC]"
+                >
                   Phone Number
                 </label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                    <svg className="w-5 h-5 text-[#FF6B00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    <svg
+                      className="w-5 h-5 text-[#FF6B00]"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                      />
                     </svg>
                   </div>
                   <input
@@ -79,18 +102,31 @@ export default function Login() {
 
               {/* Password Input */}
               <div className="relative group">
-                <label htmlFor="password" className="block text-sm mb-2 text-[#CCCCCC]">
+                <label
+                  htmlFor="password"
+                  className="block text-sm mb-2 text-[#CCCCCC]"
+                >
                   Password
                 </label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                    <svg className="w-5 h-5 text-[#FF6B00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                    <svg
+                      className="w-5 h-5 text-[#FF6B00]"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                      />
                     </svg>
                   </div>
                   <input
                     id="password"
-                    type={showPassword ? 'text' : 'password'}
+                    type={showPassword ? "text" : "password"}
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="Enter your password"
@@ -103,13 +139,38 @@ export default function Login() {
                     className="absolute inset-y-0 right-0 pr-4 flex items-center text-[#888888] hover:text-[#FF6B00] transition-colors duration-200"
                   >
                     {showPassword ? (
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" />
+                      <svg
+                        className="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"
+                        />
                       </svg>
                     ) : (
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                      <svg
+                        className="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                        />
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                        />
                       </svg>
                     )}
                   </button>
@@ -136,7 +197,7 @@ export default function Login() {
                 style={{ fontWeight: 700 }}
               >
                 <span className="relative z-10">
-                  {isCreatingAccount ? 'Create Account' : 'Sign In'}
+                  {isCreatingAccount ? "Create Account" : "Sign In"}
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-[#FF8533] to-[#FF6B00] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </button>
@@ -155,7 +216,7 @@ export default function Login() {
               <div className="text-center">
                 <p className="text-[#888888] mb-2">
                   {isCreatingAccount
-                    ? 'Already have an account?'
+                    ? "Already have an account?"
                     : "Don't have an account?"}
                 </p>
                 <button
@@ -164,7 +225,7 @@ export default function Login() {
                   className="text-[#FF6B00] hover:text-[#FF8533] transition-colors duration-200 relative group inline-block"
                   style={{ fontWeight: 600 }}
                 >
-                  {isCreatingAccount ? 'Sign In' : 'Create New Account'}
+                  {isCreatingAccount ? "Sign In" : "Create New Account"}
                   <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#FF6B00] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
                 </button>
               </div>
