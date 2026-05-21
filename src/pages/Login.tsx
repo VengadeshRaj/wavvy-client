@@ -2,14 +2,14 @@ import { useState } from "react";
 
 export default function Login() {
   const [isCreatingAccount, setIsCreatingAccount] = useState(false);
-  const [phoneNumber, setPhoneNumber] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Form submitted:", {
-      phoneNumber,
+      email,
       password,
       isCreatingAccount,
     });
@@ -41,25 +41,25 @@ export default function Login() {
 
           <div className="relative">
             {/* Logo/Title area */}
-              <div className="mb-5 text-center">
-                {/* App Icon */}
-                <img
-                  src="/wavvy-icon.png"
-                  alt="Wavvy"
-                  className="w-16 h-16 mx-auto mb-4 rounded-2xl shadow-lg"
-                />
+            <div className="mb-5 text-center">
+              {/* App Icon */}
+              <img
+                src="/wavvy-icon.png"
+                alt="Wavvy"
+                className="w-16 h-16 mx-auto mb-4 rounded-2xl shadow-lg"
+              />
 
-                {/* App Name */}
-                <h1 className="text-3xl mb-2" style={{ fontWeight: 600 }}>
-                  {isCreatingAccount ? "Create Account" : "Welcome to Wavvy"}
-                </h1>
+              {/* App Name */}
+              <h1 className="text-3xl mb-2" style={{ fontWeight: 600 }}>
+                {isCreatingAccount ? "Create Account" : "Welcome to Wavvy"}
+              </h1>
 
-                <p className="text-[#888888]">
-                  {isCreatingAccount
-                    ? "Join us and get started today"
-                    : "Sign in to start chatting"}
-                </p>
-              </div>
+              <p className="text-[#888888]">
+                {isCreatingAccount
+                  ? "Join us and get started today"
+                  : "Sign in to start chatting"}
+              </p>
+            </div>
 
             {/* Form */}
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -69,30 +69,37 @@ export default function Login() {
                   htmlFor="phone"
                   className="block text-sm mb-2 text-[#CCCCCC]"
                 >
-                  Phone Number
+                  Email
                 </label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                     <svg
+                      xmlns="http://www.w3.org/2000/svg"
                       className="w-5 h-5 text-[#FF6B00]"
+                      viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
-                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                      />
+                      <rect
+                        x="3"
+                        y="5"
+                        width="18"
+                        height="14"
+                        rx="2"
+                        ry="2"
+                      ></rect>
+                      <path d="M3 7l9 6 9-6"></path>
                     </svg>
                   </div>
                   <input
-                    id="phone"
-                    type="tel"
-                    value={phoneNumber}
-                    onChange={(e) => setPhoneNumber(e.target.value)}
-                    placeholder="+91 9923xxxxxx"
+                    id="email"
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="sampleuser@gmail.com"
                     className="w-full pl-12 pr-4 py-3 bg-[#0A0A0A] border border-[rgba(255,107,0,0.2)] rounded-lg text-white placeholder-[#555555] focus:outline-none focus:border-[#FF6B00] focus:ring-2 focus:ring-[rgba(255,107,0,0.2)] transition-all duration-300"
                     required
                   />
